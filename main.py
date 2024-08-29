@@ -9,10 +9,11 @@ from functools import wraps
 from werkzeug.security import generate_password_hash, check_password_hash
 from form import AddForm, DeleteForm, LoginForm, RegisterForm
 from cart import Cart
+import os
 import json
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 Bootstrap5(app)
 cart = Cart()
 
